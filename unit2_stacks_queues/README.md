@@ -16,21 +16,15 @@ This assignment explores two fundamental linear data structures:
 
 ## Requirements
 
-Complete all TODO sections:
+Completed all TODO sections:
 
-1. Implement stack operations.
-2. Implement queue operations.
-3. Demonstrate LIFO behavior.
-4. Demonstrate FIFO behavior.
-5. Create and test edge cases.
-6. Create a real-world scenario.
+1. Implemented stack operations using a Python list (append for push, pop from the end for pop, last-element access for peek).
+2. Implemented queue operations using collections.deque (append for enqueue, popleft for dequeue, index 0 for front).
+3. Demonstrated LIFO behavior by pushing multiple values and popping them in reverse order.
+4. Demonstrated FIFO behavior by enqueuing multiple values and dequeuing them in the original order.
+5. Created and tested edge cases including empty structures (pop, peek, dequeue, front) and single-item structures that become empty after removal.
+6. Created a real-world scenario in the discussion post (text editor undo for stack, coffee shop line for queue).
 
-## Discussion Board Reflection
+## Implementation Notes
 
-After completing the programming assignment, add this reflection to your initial discussion post in LEO.
-
-Your reflection should be approximately 150–200 words and address the following questions:
-
-1. What concepts or skills did you learn while completing this assignment?
-2. What challenges did you encounter, and how did you overcome them?
-3. Explain the differences between stacks and queues as this relates to real-world applications.
+Used a list for the Stack class so the last added item is always at the end and can be removed first. Used a deque for the Queue class so items can be added to the back and removed from the front efficiently. Both classes check is_empty before removal or peek operations and print a clear message if the structure is empty. The main function walks through four-item demos, empty-structure handling, and the single-item edge case for both structures.
