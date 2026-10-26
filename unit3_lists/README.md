@@ -2,29 +2,20 @@
 
 ## Overview
 
-This assignment examines insertion, deletion, and searching in Python lists.
-
-## Learning Objectives
-
-- Insert values into a list
-- Delete values from a list
-- Search for values in a list
-- Analyze list behavior and performance
+This assignment explores how Python lists handle insertion, deletion, and search.
 
 ## Requirements
 
-1. Test insertion at the beginning, middle, and end.
-2. Test deletion at the beginning, middle, and end.
-3. Search for existing and missing values.
-4. Demonstrate edge cases.
-5. Create a real-world scenario.
+Completed all sections:
 
-## Discussion Board Reflection
+1. Implemented insert_at using list.insert, which shifts later elements right. Insertion near the front moves more items and is slower; insertion at the end moves almost nothing.
+2. Implemented delete_at with index validation. Returns the removed value or None if the index is invalid, and uses pop which shifts later elements left.
+3. Implemented search_value as a linear scan that returns the index or -1. It must check every element in order because a plain list has no faster lookup.
+4. Demonstrated insertions at the beginning, middle, and end.
+5. Demonstrated deletions from the beginning, middle, and end.
+6. Demonstrated successful and unsuccessful searches.
+7. Tested edge cases: invalid index, empty list deletion, insert into empty list, and search on empty list.
 
-After completing the programming assignment, add this reflection to your initial discussion post in LEO.
+## Implementation Notes
 
-Your reflection should be approximately 150–200 words and address the following questions:
-
-1. What concepts or skills did you learn while completing this assignment?
-2. What challenges did you encounter, and how did you overcome them?
-3. How do list operations impact performance in real-world applications?
+Used Python’s built-in list for all operations. Comments explain the shifting behavior on insert and delete and why search is linear. The main function walks through each required test with clear print statements so the output shows exactly what changed.
