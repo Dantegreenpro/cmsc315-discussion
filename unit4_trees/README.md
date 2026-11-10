@@ -2,31 +2,21 @@
 
 ## Overview
 
-This assignment introduces Binary Search Trees (BSTs) and recursive tree operations.
-
-## Learning Objectives
-
-- Build a BST
-- Insert values recursively
-- Search recursively
-- Perform in-order traversal
-- Understand BST organization
+This assignment explores Binary Search Tree insertion, search, and in-order traversal.
 
 ## Requirements
 
-1. Build a BST.
-2. Insert multiple values.
-3. Demonstrate in-order traversal.
-4. Test searching.
-5. Demonstrate edge cases.
-6. Create a real-world BST example.
+Completed all sections:
 
-## Discussion Board Reflection
+1. Implemented Node with value, left, and right references.
+2. Implemented recursive insert so smaller values go left and larger values go right.
+3. Implemented recursive search that returns True or False. Each comparison discards an entire subtree.
+4. Implemented in-order traversal (left-node-right) that produces sorted output because of the BST property.
+5. Built a tree with at least 7 personnel IDs, starting near the middle so both subtrees fill.
+6. Demonstrated in-order traversal and verified the result is sorted.
+7. Searched for two existing IDs and two missing IDs.
+8. Tested edge cases: empty tree traversal and search, single-node tree, and duplicate insert.
 
-After completing the programming assignment, add this reflection to your initial discussion post in LEO.
+## Implementation Notes
 
-Your reflection should be approximately 150–200 words and address the following questions:
-
-1. What concepts or skills did you learn while completing this assignment?
-2. What challenges did you encounter, and how did you overcome them?
-3. Explain BST behavior and compare to how ordering works to create efficiency as compared to other data structures.
+Used recursive helpers for insert, search, and in-order. Comments explain why smaller values go left, why search is faster than linear when the tree is balanced, and why in-order produces sorted output. The main function uses a personnel-ID example and walks through construction, traversal, search, and the edge cases with clear print statements.
