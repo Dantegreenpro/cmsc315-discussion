@@ -16,84 +16,95 @@ and program output.
 
 def linear_search(lst, target):
     """
-    TODO (Student):
-    Implement a linear search algorithm.
-
-    Requirements:
-    - Search the list from beginning to end.
-    - Return the index if the target is found.
-    - Return -1 if the target is not found.
-    - Add comments explaining why linear search
-      has O(n) time complexity.
+    Linear search: check every element from start to finish.
     """
-    pass
+    # O(n) because in the worst case we look at every item once
+    # No way to skip ahead if the list is unsorted
+    for i in range(len(lst)):
+        if lst[i] == target:
+            return i
+    return -1
 
 
 def binary_search(lst, target):
     """
-    TODO (Student):
-    Implement a binary search algorithm.
-
-    Requirements:
-    - Assume the list is already sorted.
-    - Repeatedly reduce the search space by half.
-    - Return the index if the target is found.
-    - Return -1 if the target is not found.
-    - Add comments explaining how each iteration
-      reduces the search space.
+    Binary search: repeatedly cut the remaining search space in half.
+    Assumes the list is already sorted.
     """
-    pass
+    # Each step discards half the remaining elements
+    # That's why it runs in O(log n) on a sorted list
+    left = 0
+    right = len(lst) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if lst[mid] == target:
+            return mid
+        elif lst[mid] < target:
+            # Target is in the right half
+            left = mid + 1
+        else:
+            # Target is in the left half
+            right = mid - 1
+
+    return -1
 
 
 def main():
     print("=== UNIT 5: SEARCH ALGORITHMS ===")
 
-    # ===============================
-    # TODO (Student): SMALL DATASET
-    # ===============================
-    #
-    # Requirements:
-    # 1. Create a small sorted dataset.
-    # 2. Test both linear search and binary search.
-    # 3. Search for:
-    #    - a value that exists
-    #    - a value that does not exist
-    # 4. Use comments to clearly explain the results.
-
+    # SMALL DATASET
     print("\n=== SMALL DATASET TEST ===")
-    print("TODO: Create a small dataset and test both searches.")
+    small = [2, 5, 8, 12, 16, 23, 38, 45]
+    print("Small sorted list:", small)
 
-    # ===============================
-    # TODO (Student): LARGE DATASET
-    # ===============================
-    #
-    # Requirements:
-    # 1. Create a much larger sorted dataset.
-    # 2. Test both search algorithms.
-    # 3. Compare the results.
-    # 4. Use comments to explain why binary search becomes more
-    #    efficient as datasets grow larger.
+    # Value that exists
+    print("Linear search for 12:", linear_search(small, 12))
+    print("Binary search for 12:", binary_search(small, 12))
 
+    # Value that does not exist
+    print("Linear search for 99:", linear_search(small, 99))
+    print("Binary search for 99:", binary_search(small, 99))
+
+    # LARGE DATASET
     print("\n=== LARGE DATASET TEST ===")
-    print("TODO: Create a larger dataset and compare results.")
+    # 1000 sorted numbers
+    large = list(range(0, 10000, 10))
+    print(f"Large sorted list size: {len(large)}")
 
-    # ===============================
-    # TODO (Student): EDGE CASES
-    # ===============================
-    #
-    # Demonstrate at least two edge cases.
-    #
-    # Example ideas:
-    # - Empty list
-    # - Single-element list
-    # - Value not present
-    # - Value at the first position
-    # - Value at the last position
-    #
-    # Explain what happens in each case.
+    # Search for a value near the end so linear has to do more work
+    target = 9990
+    print(f"Linear search for {target}:", linear_search(large, target))
+    print(f"Binary search for {target}:", binary_search(large, target))
 
+    # Missing value
+    print("Linear search for 9995:", linear_search(large, 9995))
+    print("Binary search for 9995:", binary_search(large, 9995))
+
+    # Binary stays fast even as the list grows because it keeps cutting the space in half
+    # Linear has to walk further on average
+
+    # EDGE CASES
     print("\n=== EDGE CASE TESTS ===")
-    print("TODO: Demonstrate and explain edge cases.")
+
+    # Empty list
+    empty = []
+    print("Linear on empty:", linear_search(empty, 5))
+    print("Binary on empty:", binary_search(empty, 5))
+
+    # Single-element list
+    single = [42]
+    print("Linear on single (hit):", linear_search(single, 42))
+    print("Binary on single (hit):", binary_search(single, 42))
+    print("Linear on single (miss):", linear_search(single, 7))
+    print("Binary on single (miss):", binary_search(single, 7))
+
+    # Value at first and last position
+    print("Linear for first element (2):", linear_search(small, 2))
+    print("Binary for first element (2):", binary_search(small, 2))
+    print("Linear for last element (45):", linear_search(small, 45))
+    print("Binary for last element (45):", binary_search(small, 45))
 
 
 if __name__ == "__main__":
